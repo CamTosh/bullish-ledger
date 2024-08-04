@@ -10,3 +10,9 @@ export interface TransferRequest {
   amount: number;
   asset: string;
 }
+
+export interface WithdrawRequest {
+  userId: string;
+  amount: number;
+  asset: string;
+}

@@ -1,0 +1,15 @@
+vars {
+  account $from_user
+  account $to_user
+  monetary $transfer_amount
+}
+
+send $transfer_amount (
+  source = $from_user
+  destination = $to_user
+)
+
+set_tx_meta("action", "transfer")
+set_tx_meta("from_user", $from_user)
+set_tx_meta("to_user", $to_user)
+set_tx_meta("amount", $transfer_amount)

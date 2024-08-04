@@ -1,0 +1,11 @@
+vars {
+  account $user
+  monetary $order_amount
+}
+
+send $order_amount (
+  source = $user
+  destination = @exchange:orders:buy
+)
+
+set_tx_meta("action", "buy_order_place")

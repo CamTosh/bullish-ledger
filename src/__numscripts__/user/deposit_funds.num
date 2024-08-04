@@ -1,0 +1,13 @@
+vars {
+  account $user
+  monetary $deposit_amount
+}
+
+send $deposit_amount (
+  source = @world
+  destination = $user
+)
+
+set_tx_meta("action", "deposit")
+set_tx_meta("user", $user)
+set_tx_meta("amount", $deposit_amount)

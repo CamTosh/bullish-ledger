@@ -1,0 +1,20 @@
+{
+  "name": "@bullish/ledger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CamTosh/bullish-ledger.git",
+  "author": "Toche Camille <tochecamille@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "bun src/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@formance/formance-sdk": "^2.6.0"
+  }
+}

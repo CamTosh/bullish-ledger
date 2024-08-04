@@ -9,5 +9,3 @@ send $deposit_amount (
 )
 
 set_tx_meta("action", "deposit")
-set_tx_meta("user", $user)
-set_tx_meta("amount", $deposit_amount)

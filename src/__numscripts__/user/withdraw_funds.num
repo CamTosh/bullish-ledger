@@ -9,5 +9,3 @@ send $withdraw_amount (
 )
 
 set_tx_meta("action", "withdraw")
-set_tx_meta("user", $user)
-set_tx_meta("amount", $withdraw_amount)

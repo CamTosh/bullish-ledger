@@ -10,6 +10,3 @@ send $transfer_amount (
 )
 
 set_tx_meta("action", "transfer")
-set_tx_meta("from_user", $from_user)
-set_tx_meta("to_user", $to_user)
-set_tx_meta("amount", $transfer_amount)

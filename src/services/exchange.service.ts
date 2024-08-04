@@ -1,4 +1,4 @@
-import { PlaceOrderRequest } from "types";
+import { PlaceOrderRequest, CancelOrderRequest } from "types";
 import { NumscriptService } from "./numscript.service";
 
 export class ExchangeService extends NumscriptService {
@@ -8,6 +8,15 @@ export class ExchangeService extends NumscriptService {
 
   async placeBuyOrder(request: PlaceOrderRequest) {
     return await this.execute('buy_order.place', {
+      user: `users:${request.userId}`,
+      order_amount: {
+        amount: request.amount,
+        asset: request.asset,
+      },
+    });
+  }
+  async cancelBuyOrder(request: CancelOrderRequest) {
+    return await this.execute('buy_order.cancel', {
       user: `users:${request.userId}`,
       order_amount: {
         amount: request.amount,
@@ -25,4 +34,15 @@ export class ExchangeService extends NumscriptService {
       },
     });
   }
+
+  async cancelSellOrder(request: CancelOrderRequest) {
+    return await this.execute('sell_order.cancel', {
+      user: `users:${request.userId}`,
+      order_amount: {
+        amount: request.amount,
+        asset: request.asset,
+      },
+    });
+  }
+
 }

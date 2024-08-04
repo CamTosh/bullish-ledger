@@ -3,3 +3,9 @@ export interface PlaceOrderRequest {
   amount: number;
   asset: string;
 }
+
+export interface CancelOrderRequest {
+  userId: string;
+  amount: number;
+  asset: string;
+}

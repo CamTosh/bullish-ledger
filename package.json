@@ -6,7 +6,8 @@
   "author": "Toche Camille <tochecamille@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "bun src/index.js"
+    "start": "bun src/index.js",
+    "play": "bun src/__scripts__/play.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"

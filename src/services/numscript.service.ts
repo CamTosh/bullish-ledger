@@ -1,20 +1,21 @@
 import { SDK } from "@formance/formance-sdk";
-import config from '../config';
+import config from "../config";
+import path from 'node:path';
 
 export abstract class NumscriptService {
   private client: SDK;
 
-  constructor() {
+  constructor(private readonly folder: string) {
     this.client = new SDK({
-      authorization: config.apiKey,
+      authorization: `Bearer ${config.apiKey}`,
       serverURL: config.apiUrl,
     });
   }
 
-  async execute(scriptName: string, variables: Record<string, any>): Promise<any> {
-    const scriptPath = [__dirname, '..', '__numscripts__', `${scriptName}.num`].join('/');
+  async execute(scriptName: string, variables: Record<string, any>) {
+    const scriptPath = path.join(__dirname, '..', '__numscripts__', this.folder, `${scriptName}.num`);
     
-    const file = Bun.file(scriptPath)
+    const file = Bun.file(scriptPath);
     const script = await file.text();
 
     try {

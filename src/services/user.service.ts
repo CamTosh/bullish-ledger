@@ -1,4 +1,4 @@
-import { DepositRequest, TransferRequest, WithdrawRequest } from "types";
+import { DepositRequest, TransferRequest, WithdrawRequest, WithdrawWithFeeRequest } from "types";
 import { NumscriptService } from "./numscript.service";
 
 export class UserService extends NumscriptService {
@@ -24,7 +24,6 @@ export class UserService extends NumscriptService {
         amount: request.amount,
         asset: request.asset,
       },
-      transfer_asset: request.asset,
     });
   }
 
@@ -34,6 +33,20 @@ export class UserService extends NumscriptService {
       withdraw_amount: {
         amount: request.amount,
         asset: request.asset,
+      },
+    });
+  }
+
+  async withdrawFundsWithFee(request: WithdrawWithFeeRequest) {
+    return await this.execute('withdraw_funds_fee', {
+      user: `users:${request.userId}`,
+      withdraw_amount: {
+        amount: request.amount,
+        asset: request.asset,
+        fee: {
+          asset: request.asset,
+          amount: request.fee,
+        }
       },
       withdraw_asset: request.asset,
     });

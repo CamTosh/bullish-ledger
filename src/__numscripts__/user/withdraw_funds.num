@@ -8,4 +8,4 @@ send $withdraw_amount (
   destination = @world
 )
 
-set_tx_meta("action", "withdraw")
+set_tx_meta("action", "withdraw_funds")

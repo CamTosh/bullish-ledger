@@ -1,0 +1,20 @@
+vars {
+  account $user
+  monetary $withdraw_amount
+  portion $fee
+}
+
+send $withdraw_amount (
+  source = $user
+    destination = {
+    $fee to @platform:fees
+    remaining kept
+  }
+)
+
+send $withdraw_amount (
+  source = $user
+  destination = @world
+)
+
+set_tx_meta("action", "withdraw_funds_fee")

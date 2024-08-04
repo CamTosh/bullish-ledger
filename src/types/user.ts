@@ -16,3 +16,10 @@ export interface WithdrawRequest {
   amount: number;
   asset: string;
 }
+
+export interface WithdrawWithFeeRequest {
+  userId: string;
+  amount: number;
+  asset: string;
+  fee: number;
+}

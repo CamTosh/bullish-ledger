@@ -8,4 +8,4 @@ send $deposit_amount (
   destination = $user
 )
 
-set_tx_meta("action", "deposit")
+set_tx_meta("action", "deposit_funds")

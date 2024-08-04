@@ -9,4 +9,4 @@ send $transfer_amount (
   destination = $to_user
 )
 
-set_tx_meta("action", "transfer")
+set_tx_meta("action", "transfer_funds")

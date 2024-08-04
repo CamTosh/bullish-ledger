@@ -1,4 +1,5 @@
-import { UserService } from "../services";
+import config from "config";
+import { UserService, getFormanceSDK } from "../services";
 
 async function main() {
 
@@ -15,6 +16,13 @@ async function main() {
   console.log(metadata)
   console.log(timestamp)
   console.log(postings)
+
+  const { balancesCursorResponse } = await getFormanceSDK().ledger.getBalances({
+    address: 'users:123',
+    ledger: config.ledgerName,
+  })
+
+  console.log(balancesCursorResponse.cursor.data[0])
 }
 
 main();

@@ -9,3 +9,10 @@ export interface CancelOrderRequest {
   amount: number;
   asset: string;
 }
+
+export interface ExecuteTradeRequest {
+  buyerId: string;
+  sellerId: string;
+  amount: number;
+  asset: string;
+}

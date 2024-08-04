@@ -1,0 +1,17 @@
+vars {
+  account $buyer
+  account $seller
+  monetary $trade_amount
+}
+
+send $trade_amount (
+  source = @exchange:orders:buy
+  destination = $seller
+)
+
+send $trade_amount (
+  source = @exchange:orders:sell
+  destination = $buyer
+)
+
+set_tx_meta("action", "trade_execute")

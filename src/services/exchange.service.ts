@@ -1,4 +1,4 @@
-import { PlaceOrderRequest, CancelOrderRequest } from "types";
+import { ExecuteTradeRequest, PlaceOrderRequest, CancelOrderRequest } from "types";
 import { NumscriptService } from "./numscript.service";
 
 export class ExchangeService extends NumscriptService {
@@ -45,4 +45,14 @@ export class ExchangeService extends NumscriptService {
     });
   }
 
+  async executeTrade(request: ExecuteTradeRequest) {
+    return await this.execute('trade.execute', {
+      buyer: `users:${request.buyerId}`,
+      seller: `users:${request.sellerId}`,
+      trade_amount: {
+        amount: request.amount,
+        asset: request.asset,
+      },
+    });
+  }
 }
